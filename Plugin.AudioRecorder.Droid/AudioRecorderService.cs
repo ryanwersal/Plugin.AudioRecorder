@@ -1,4 +1,4 @@
-﻿using Android.Content;
+using Android.Content;
 using Android.Media;
 using System.IO;
 using System;
@@ -9,7 +9,10 @@ namespace Plugin.AudioRecorder
 	{
 		partial void Init ()
 		{
-			filePath = Path.Combine (Path.GetTempPath (), RecordingFileName);
+			if (FilePath == null)
+			{
+				FilePath = Path.Combine(Path.GetTempPath(), DefaultFileName);
+			}
 
 			if (Android.OS.Build.VERSION.SdkInt > Android.OS.BuildVersionCodes.JellyBean)
 			{
