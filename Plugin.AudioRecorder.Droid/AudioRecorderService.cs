@@ -2,12 +2,13 @@ using Android.Content;
 using Android.Media;
 using System.IO;
 using System;
+using System.Threading.Tasks;
 
 namespace Plugin.AudioRecorder
 {
 	public partial class AudioRecorderService
 	{
-		partial void Init ()
+		Task Init()
 		{
 			if (FilePath == null)
 			{
@@ -36,6 +37,8 @@ namespace Plugin.AudioRecorder
 					System.Diagnostics.Debug.WriteLine ("PreferredSampleRate will remain at the default");
 				}
 			}
+
+			return Task.CompletedTask;
 		}
 	}
 }

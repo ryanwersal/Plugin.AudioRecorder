@@ -90,9 +90,6 @@ namespace Plugin.AudioRecorder
 		public event EventHandler<string> AudioInputReceived;
 
 
-		partial void Init ();
-
-
 		/// <summary>
 		/// Starts recording audio.
 		/// </summary>
@@ -100,7 +97,7 @@ namespace Plugin.AudioRecorder
 		/// The task result will be the path to the recorded audio file, or null if no audio was recorded.</returns>
 		public async Task<Task<string>> StartRecording ()
 		{
-			Init();
+			await Init();
 
 			ResetAudioDetection ();
 

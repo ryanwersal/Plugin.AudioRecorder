@@ -1,11 +1,12 @@
 using System;
+using System.Threading.Tasks;
 using Windows.Storage;
 
 namespace Plugin.AudioRecorder
 {
 	public partial class AudioRecorderService
 	{
-		async partial void Init()
+		async Task Init()
 		{
 			if (FilePath == null)
 			{

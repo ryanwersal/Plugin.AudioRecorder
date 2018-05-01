@@ -1,15 +1,17 @@
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Plugin.AudioRecorder
 {
 	public partial class AudioRecorderService
 	{
-		partial void Init()
+		Task Init()
 		{
 			if (FilePath == null)
 			{
 				FilePath = Path.Combine(Path.GetTempPath(), DefaultFileName);
 			}
+			return Task.CompletedTask;
 		}
 	}
 }
