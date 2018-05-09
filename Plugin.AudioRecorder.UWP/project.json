@@ -1,10 +1,11 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
-    "NuGet.Build.Packaging": "0.1.324"
+    "NuGet.Build.Packaging": "0.2.2",
+    "NuProj.Common": "0.11.30"
   },
   "frameworks": {
-    "uap10.0": {}
+    "uap10.0.10240": {}
   },
   "runtimes": {
     "win10-arm": {},

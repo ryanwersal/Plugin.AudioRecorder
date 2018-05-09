@@ -69,8 +69,29 @@ More settings and properties are [defined below](#properties-and-settings)
 To begin recording, use the `StartRecording ()` and `StopRecording ()` methods as shown:
 
 ```C#
-async void RecordButton_Click (object sender, EventArgs e){	await RecordAudio ();}async Task RecordAudio (){	try	{		if (!recorder.IsRecording)		{			await recorder.StartRecording ();		}		else		{			await recorder.StopRecording ();		}	}	catch (Exception ex)	{
-	...	}}
+async void RecordButton_Click (object sender, EventArgs e)
+{
+	await RecordAudio ();
+}
+
+async Task RecordAudio ()
+{
+	try
+	{
+		if (!recorder.IsRecording)
+		{
+			await recorder.StartRecording ();
+		}
+		else
+		{
+			await recorder.StopRecording ();
+		}
+	}
+	catch (Exception ex)
+	{
+	...
+	}
+}
 ```
 
 In lieu of calling `StopRecording ()`, you can also make use of the `StopRecordingAfterTimeout` and/or `StopRecordingOnSilence` settings, which are [explained below](#properties-and-settings).
@@ -116,8 +137,10 @@ await recorder.StartRecording ();
 
 ...
 
-private async void Recorder_AudioInputReceived(object sender, string audioFile){
-	//do something with the file}
+private async void Recorder_AudioInputReceived(object sender, string audioFile)
+{
+	//do something with the file
+}
 ```
 
 **NOTE:** This event is raised on a background thread to allow for further file processing as needed.  If the `audioFile` is null or empty, no audio was recorded.
@@ -219,6 +242,11 @@ An example of the Task-based API and concurrent writing and reading of the audio
 # Contributing
 
 Contributions are welcome.  Feel free to file issues and pull requests on the repo and they'll be reviewed as time permits.
+
+
+# Building NuGet Package
+
+Invoke the `build.cmd` script in a Visual Studio Developer Command Prompt. A nupkg file will be built and copied into the root of the project directory (alongside the solution).
 
 
 # About
